@@ -54,6 +54,30 @@ class Admin extends Base {
 		if( ! get_option( 'warranty-managment_install_time' ) ){
 			update_option( 'warranty-managment_install_time', time() );
 		}
+
+		global $wpdb;
+		$table_name = $wpdb->prefix . "wms_shop_applications";
+
+		// Check if table exists
+		if ( $wpdb->get_var( "SHOW TABLES LIKE '$table_name'" ) != $table_name ) {
+		    $charset_collate = $wpdb->get_charset_collate();
+		    
+		    $sql = "CREATE TABLE $table_name (
+		        id BIGINT(20) NOT NULL AUTO_INCREMENT,
+		        user_id BIGINT(20) NOT NULL,
+		        shop_name VARCHAR(255) NOT NULL,
+		        documents TEXT,
+		        status VARCHAR(20) DEFAULT 'pending',
+		        applied_date DATETIME,
+		        approved_date DATETIME,
+		        admin_note TEXT,
+		        PRIMARY KEY  (id)
+		    ) $charset_collate;";
+
+		    require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+		    dbDelta( $sql );
+		}
+
 	}
 
 	/**
@@ -79,4 +103,5 @@ class Admin extends Base {
 			<img id="warranty-managment-modal-loader" src="' . esc_attr( WARRANTY_MANAGMENT_ASSET . '/img/loader.gif' ) . '" />
 		</div>';
 	}
+
 }

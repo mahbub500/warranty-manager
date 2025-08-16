@@ -167,7 +167,7 @@ final class Plugin {
 			 * Shortcode related hooks
 			 */
 			$shortcode = new App\Shortcode( $this->plugin );
-			$shortcode->register( 'my_shortcode', 'my_shortcode' );
+			$shortcode->register( 'wms_customer_dashboard', 'wms_customer_dashboard' );
 
 		endif;
 

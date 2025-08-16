@@ -49,6 +49,15 @@ class Settings extends Base {
 			// 'position'   => 25,
 			// 'topnav'	=> true,
 			'sections'      => [
+				'warranty-managment_table' => [
+					'id'        => 'warranty-managment_table',
+					'label'     => __( 'Shop Owner Applications
+', 'warranty-managment' ),
+					'icon'      => 'dashicons-editor-table',
+					// 'color'		=> '#28c9ee',
+					'hide_form'	=> true,
+					'template'  => WARRANTY_MANAGMENT_DIR . '/views/settings/table.php',
+				],
 				'warranty-managment_basic'	=> [
 					'id'        => 'warranty-managment_basic',
 					'label'     => __( 'Basic Settings', 'warranty-managment' ),
@@ -506,14 +515,7 @@ class Settings extends Base {
 						],
 					]
 				],
-				'warranty-managment_table' => [
-					'id'        => 'warranty-managment_table',
-					'label'     => __( 'Table', 'warranty-managment' ),
-					'icon'      => 'dashicons-editor-table',
-					// 'color'		=> '#28c9ee',
-					'hide_form'	=> true,
-					'template'  => WARRANTY_MANAGMENT_DIR . '/views/settings/table.php',
-				],
+				
 			],
 		];
 
