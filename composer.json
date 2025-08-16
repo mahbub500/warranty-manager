@@ -1,0 +1,19 @@
+{
+    "authors": [
+        {
+            "name": "Codexpert",
+            "email": "hi@codexpert.io"
+        }
+    ],
+    "require": {
+        "codexpert/plugin": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "Codexpert\\Warranty_Managment\\" : "classes/",
+            "Codexpert\\Warranty_Managment\\App\\" : "app/",
+            "Codexpert\\Warranty_Managment\\API\\" : "api/"
+        },
+        "files": [ "inc/functions.php" ]
+    }
+}
